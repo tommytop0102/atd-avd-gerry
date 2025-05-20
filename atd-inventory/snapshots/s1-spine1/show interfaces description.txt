@@ -1,0 +1,11 @@
+Interface                      Status         Protocol           Description
+Et1                            up             up                 
+Et2                            up             up                 P2P_s1-leaf1_Ethernet2
+Et3                            up             up                 P2P_s1-leaf2_Ethernet2
+Et4                            up             up                 P2P_s1-leaf3_Ethernet2
+Et5                            up             up                 P2P_s1-leaf4_Ethernet2
+Et6                            up             up                 
+Et7                            down           down               
+Et8                            down           down               
+Lo0                            up             up                 ROUTER_ID
+Ma0                            up             up                 OOB_MANAGEMENT
