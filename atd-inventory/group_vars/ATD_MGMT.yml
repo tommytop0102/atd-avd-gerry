@@ -20,6 +20,5 @@ mgmt_interface_vrf: default
 name_servers:
   - 192.168.2.1
   - 8.8.8.8
-  - 168.95.1.1
 
 dns_domain: atd.lab

@@ -93,7 +93,7 @@
 ### VTEP Loopback VXLAN Tunnel Source Interfaces (VTEPs Only)
 
 | VTEP Loopback Pool | Available Addresses | Assigned addresses | Assigned Address % |
-| ------------------ | ------------------- | ------------------ | ------------------ |
+| --------------------- | ------------------- | ------------------ | ------------------ |
 | 192.0.254.0/24 | 256 | 4 | 1.57 % |
 
 ### VTEP Loopback Node allocation
@@ -111,14 +111,25 @@
 
 | Key | Type | Description |
 | --- | ---- | ----------- |
+| access_points | access_point | Access Point |
+| cameras | camera | Camera |
+| cpes | cpe | CPE |
+| firewalls | firewall | Firewall |
+| generic_devices | generic_device | Generic Device |
+| load_balancers | load_balancer | Load Balancer |
+| phones | phone | Phone |
+| printers | printer | Printer |
+| routers | router | Router |
 | servers | server | Server |
+| storage_arrays | storage_array | Storage Array |
+| workstations | workstation | Workstation |
 
 ### Servers
 
-| Name | Port | Fabric Device | Fabric Port | Description | Shutdown | Mode | Access VLAN | Trunk Allowed VLANs | Profile |
-| ---- | ---- | ------------- | ------------| ----------- | -------- | ---- | ----------- | ------------------- | ------- |
-| s1-host2 | Eth1 | s1-leaf3 | Ethernet4 | SERVER_s1-host2_Eth1 | False | trunk | - | 110-112,120 | TENANT_A |
-| s1-host2 | Eth2 | s1-leaf4 | Ethernet4 | SERVER_s1-host2_Eth2 | False | trunk | - | 110-112,120 | TENANT_A |
+| Name | Port | Fabric Device | Fabric Port | Description | Shutdown | Type | Mode | VLANs | Profile |
+| ---- | ---- | ------------- | ------------| ----------- | -------- | ---- | ---- | ----- | ------- |
+| s1-host2 | Eth1 | s1-leaf3 | Ethernet4 | s1-host2_Eth1 | False | switched | trunk | 110-112,210-212,360,460 | TENANT_A |
+| s1-host2 | Eth2 | s1-leaf4 | Ethernet4 | s1-host2_Eth2 | False | switched | trunk | 110-112,210-212,360,460 | TENANT_A |
 
 ### Port Profiles
 

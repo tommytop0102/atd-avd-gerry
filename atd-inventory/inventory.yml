@@ -6,7 +6,7 @@ all:
         cv_atd1:
           ansible_host: 192.168.0.5
           cv_collection: v3
-    ATD_DC1_MGMT:
+    ATD_MGMT:
       children:
         ATD_DC1_FABRIC:
           children:
@@ -43,7 +43,8 @@ all:
 
   vars:
     ansible_user: arista
-    ansible_password: "{{ lookup('env', 'LABPASSPHRASE') }}"
+    ansible_password: arista90vr
+#    ansible_password: "{{ lookup('env', 'LABPASSPHRASE') }}"
     ansible_network_os: arista.eos.eos
     # Configure privilege escalation
     ansible_become: true
