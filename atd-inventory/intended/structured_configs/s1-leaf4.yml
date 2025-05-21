@@ -228,8 +228,9 @@ port_channel_interfaces:
   description: s1-host2_PortChannel
   type: switched
   shutdown: false
+  mtu: 9000
   mode: trunk
-  vlans: 110-112,210-212,360,460,560
+  vlans: 110-112,210-212,360-960
   mlag: 4
 ethernet_interfaces:
 - name: Ethernet1
@@ -274,7 +275,7 @@ ethernet_interfaces:
   peer: s1-host2
   peer_interface: Eth2
   peer_type: server
-  port_profile: TENANT_A
+  port_profile: int_vpc_trunk_host
   description: s1-host2_Eth2
   shutdown: false
   type: port-channel-member

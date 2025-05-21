@@ -11,22 +11,22 @@
 
 ```
 Interface                      Status         Protocol           Description
-Et1                            up             up                 MLAG_s1-leaf3_Ethernet1
-Et2                            up             up                 P2P_s1-spine1_Ethernet5
-Et3                            up             up                 P2P_s1-spine2_Ethernet5
-Et4                            up             up                 SERVER_s1-host2_Eth2
-Et6                            up             up                 MLAG_s1-leaf3_Ethernet6
-Lo0                            up             up                 ROUTER_ID
-Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
-Lo100                          up             up                 DIAG_VRF_Tenant_A_OP_Zone
-Ma0                            up             up                 OOB_MANAGEMENT
-Po1                            up             up                 MLAG_s1-leaf3_Port-Channel1
-Po4                            down           lowerlayerdown     PortChannel
+Et1                            up             up                 MLAG_PEER_s1-leaf3_Ethernet1
+Et2                            up             up                 P2P_LINK_TO_S1-SPINE1_Ethernet5
+Et3                            up             up                 P2P_LINK_TO_S1-SPINE2_Ethernet5
+Et4                            up             up                 s1-host2_Eth2
+Et6                            up             up                 MLAG_PEER_s1-leaf3_Ethernet6
+Lo0                            up             up                 EVPN_Overlay_Peering
+Lo1                            up             up                 VTEP_VXLAN_Tunnel_Source
+Lo100                          up             up                 Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
+Ma0                            up             up                 
+Po1                            up             up                 MLAG_PEER_s1-leaf3_Po1
+Po4                            down           lowerlayerdown     s1-host2_PortChannel
 Vl110                          up             up                 Tenant_A_OP_Zone_1
 Vl1199                         up             up                 
-Vl3009                         up             up                 MLAG_L3_VRF_Tenant_A_OP_Zone
-Vl4093                         up             up                 MLAG_L3
-Vl4094                         up             up                 MLAG
+Vl3009                         up             up                 MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone
+Vl4093                         up             up                 MLAG_PEER_L3_PEERING
+Vl4094                         up             up                 MLAG_PEER
 Vx1                            up             up                 s1-leaf4_VTEP
 ```
 ## show ip interface brief
@@ -50,9 +50,9 @@ Vlan4094        10.255.252.5/31      up         up              1500
 ## show lldp neighbors
 
 ```
-Last table change time   : 1:03:11 ago
-Number of table inserts  : 5
-Number of table deletes  : 0
+Last table change time   : 2:07:00 ago
+Number of table inserts  : 6
+Number of table deletes  : 1
 Number of table drops    : 0
 Number of table age-outs : 0
 
@@ -113,16 +113,19 @@ vlan 110
 vlan 160
    name Tenant_A_VMOTION
 !
+vlan 360
+   name Tenant_A_V360
+!
 vlan 3009
-   name MLAG_L3_VRF_Tenant_A_OP_Zone
-   trunk group MLAG
+   name MLAG_iBGP_Tenant_A_OP_Zone
+   trunk group LEAF_PEER_L3
 !
 vlan 4093
-   name MLAG_L3
-   trunk group MLAG
+   name LEAF_PEER_L3
+   trunk group LEAF_PEER_L3
 !
 vlan 4094
-   name MLAG
+   name MLAG_PEER
    trunk group MLAG
 !
 vrf instance Tenant_A_OP_Zone
@@ -137,55 +140,57 @@ aaa authorization exec default group atds local
 aaa authorization commands all default local
 !
 interface Port-Channel1
-   description MLAG_s1-leaf3_Port-Channel1
+   description MLAG_PEER_s1-leaf3_Po1
    switchport mode trunk
+   switchport trunk group LEAF_PEER_L3
    switchport trunk group MLAG
 !
 interface Port-Channel4
-   description PortChannel
-   switchport trunk allowed vlan 110-112
+   description s1-host2_PortChannel
+   mtu 9000
+   switchport trunk allowed vlan 110-112,210-212,360-960
    switchport mode trunk
    mlag 4
 !
 interface Ethernet1
-   description MLAG_s1-leaf3_Ethernet1
+   description MLAG_PEER_s1-leaf3_Ethernet1
    channel-group 1 mode active
 !
 interface Ethernet2
-   description P2P_s1-spine1_Ethernet5
+   description P2P_LINK_TO_S1-SPINE1_Ethernet5
    mtu 1500
    no switchport
    ip address 172.30.255.13/31
 !
 interface Ethernet3
-   description P2P_s1-spine2_Ethernet5
+   description P2P_LINK_TO_S1-SPINE2_Ethernet5
    mtu 1500
    no switchport
    ip address 172.30.255.15/31
 !
 interface Ethernet4
-   description SERVER_s1-host2_Eth2
+   description s1-host2_Eth2
    channel-group 4 mode active
 !
 interface Ethernet6
-   description MLAG_s1-leaf3_Ethernet6
+   description MLAG_PEER_s1-leaf3_Ethernet6
    channel-group 1 mode active
 !
 interface Loopback0
-   description ROUTER_ID
+   description EVPN_Overlay_Peering
    ip address 192.0.255.6/32
 !
 interface Loopback1
-   description VXLAN_TUNNEL_SOURCE
+   description VTEP_VXLAN_Tunnel_Source
    ip address 192.0.254.5/32
 !
 interface Loopback100
-   description DIAG_VRF_Tenant_A_OP_Zone
+   description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
    vrf Tenant_A_OP_Zone
    ip address 10.255.1.6/32
 !
 interface Management0
-   description OOB_MANAGEMENT
+   description oob_management
    ip address 192.168.0.15/24
 !
 interface Vlan110
@@ -194,18 +199,18 @@ interface Vlan110
    ip address virtual 10.1.10.1/24
 !
 interface Vlan3009
-   description MLAG_L3_VRF_Tenant_A_OP_Zone
+   description MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone
    mtu 1500
    vrf Tenant_A_OP_Zone
    ip address 10.255.251.5/31
 !
 interface Vlan4093
-   description MLAG_L3
+   description MLAG_PEER_L3_PEERING
    mtu 1500
    ip address 10.255.251.5/31
 !
 interface Vlan4094
-   description MLAG
+   description MLAG_PEER
    mtu 1500
    no autostate
    ip address 10.255.252.5/31
@@ -215,8 +220,9 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
-   vxlan vlan 110 vni 10110
+   vxlan vlan 110 vni 20110
    vxlan vlan 160 vni 55160
+   vxlan vlan 360 vni 55360
    vxlan vrf Tenant_A_OP_Zone vni 10
 !
 ip virtual-router mac-address 00:1c:73:00:dc:01
@@ -228,9 +234,6 @@ ip routing vrf Tenant_A_OP_Zone
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 192.0.255.0/24 eq 32
    seq 20 permit 192.0.254.0/24 eq 32
-!
-ip prefix-list PL-MLAG-PEER-VRFS
-   seq 10 permit 10.255.251.4/31
 !
 mlag configuration
    domain-id pod2
@@ -248,11 +251,6 @@ ip radius source-interface Management0
 !
 route-map RM-CONN-2-BGP permit 10
    match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
-!
-route-map RM-CONN-2-BGP-VRFS deny 10
-   match ip address prefix-list PL-MLAG-PEER-VRFS
-!
-route-map RM-CONN-2-BGP-VRFS permit 20
 !
 route-map RM-MLAG-PEER-IN permit 10
    description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
@@ -288,7 +286,7 @@ router bgp 65102
    neighbor MLAG-IPv4-UNDERLAY-PEER send-community
    neighbor MLAG-IPv4-UNDERLAY-PEER maximum-routes 12000
    neighbor 10.255.251.4 peer group MLAG-IPv4-UNDERLAY-PEER
-   neighbor 10.255.251.4 description s1-leaf3_Vlan4093
+   neighbor 10.255.251.4 description s1-leaf3
    neighbor 172.30.255.12 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.12 remote-as 65001
    neighbor 172.30.255.12 description s1-spine1_Ethernet5
@@ -297,23 +295,26 @@ router bgp 65102
    neighbor 172.30.255.14 description s1-spine2_Ethernet5
    neighbor 192.0.255.1 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.1 remote-as 65001
-   neighbor 192.0.255.1 description s1-spine1_Loopback0
+   neighbor 192.0.255.1 description s1-spine1
    neighbor 192.0.255.2 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.2 remote-as 65001
-   neighbor 192.0.255.2 description s1-spine2_Loopback0
+   neighbor 192.0.255.2 description s1-spine2
    redistribute connected route-map RM-CONN-2-BGP
    !
-   vlan-aware-bundle Tenant_A_OP_Zone
-      rd 192.0.255.6:10
-      route-target both 10:10
+   vlan 110
+      rd 192.0.255.6:20110
+      route-target both 20110:20110
       redistribute learned
-      vlan 110
    !
-   vlan-aware-bundle Tenant_A_VMOTION
+   vlan 160
       rd 192.0.255.6:55160
       route-target both 55160:55160
       redistribute learned
-      vlan 160
+   !
+   vlan 360
+      rd 192.0.255.6:55360
+      route-target both 55360:55360
+      redistribute learned
    !
    address-family evpn
       neighbor EVPN-OVERLAY-PEERS activate
@@ -329,8 +330,7 @@ router bgp 65102
       route-target export evpn 10:10
       router-id 192.0.255.6
       neighbor 10.255.251.4 peer group MLAG-IPv4-UNDERLAY-PEER
-      neighbor 10.255.251.4 description s1-leaf3_Vlan3009
-      redistribute connected route-map RM-CONN-2-BGP-VRFS
+      redistribute connected
 !
 router multicast
    ipv4
@@ -360,7 +360,7 @@ Image optimization: None
 
 Kernel version: 5.14.0-503.21.1.el9_5.x86_64
 
-Uptime: 2 hours and 4 minutes
-Total memory: 49062204 kB
-Free memory: 2808824 kB
+Uptime: 5 hours and 33 minutes
+Total memory: 49062196 kB
+Free memory: 3340772 kB
 ```

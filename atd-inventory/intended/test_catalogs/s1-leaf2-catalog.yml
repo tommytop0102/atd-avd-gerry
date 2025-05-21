@@ -125,55 +125,49 @@ anta.tests.interfaces:
     - name: Ethernet1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet1 - MLAG_s1-leaf1_Ethernet1 = 'up'
+      custom_field: Interface Ethernet1 - MLAG_PEER_s1-leaf1_Ethernet1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet6
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet6 - MLAG_s1-leaf1_Ethernet6 = 'up'
+      custom_field: Interface Ethernet6 - MLAG_PEER_s1-leaf1_Ethernet6 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet2
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet2 - P2P_s1-spine1_Ethernet3 = 'up'
+      custom_field: Interface Ethernet2 - P2P_LINK_TO_S1-SPINE1_Ethernet3 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet3
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet3 - P2P_s1-spine2_Ethernet3 = 'up'
+      custom_field: Interface Ethernet3 - P2P_LINK_TO_S1-SPINE2_Ethernet3 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet4
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet4 - SERVER_s1-host1_Eth2 = 'up'
+      custom_field: Interface Ethernet4 - Routed_Interface_4 int_routed_host = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Port-Channel1
       status: up
     result_overwrite:
-      custom_field: Interface Port-Channel1 - MLAG_s1-leaf1_Port-Channel1 = 'up'
-- VerifyInterfacesStatus:
-    interfaces:
-    - name: Port-Channel4
-      status: up
-    result_overwrite:
-      custom_field: Interface Port-Channel4 - PortChannel = 'up'
+      custom_field: Interface Port-Channel1 - MLAG_PEER_s1-leaf1_Po1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vlan4093
       status: up
     result_overwrite:
-      custom_field: Interface Vlan4093 - MLAG_L3 = 'up'
+      custom_field: Interface Vlan4093 - MLAG_PEER_L3_PEERING = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vlan4094
       status: up
     result_overwrite:
-      custom_field: Interface Vlan4094 - MLAG = 'up'
+      custom_field: Interface Vlan4094 - MLAG_PEER = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vlan110
@@ -185,25 +179,26 @@ anta.tests.interfaces:
     - name: Vlan3009
       status: up
     result_overwrite:
-      custom_field: Interface Vlan3009 - MLAG_L3_VRF_Tenant_A_OP_Zone = 'up'
+      custom_field: 'Interface Vlan3009 - MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone
+        = ''up'''
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback0
       status: up
     result_overwrite:
-      custom_field: Interface Loopback0 - ROUTER_ID = 'up'
+      custom_field: Interface Loopback0 - EVPN_Overlay_Peering = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback1
       status: up
     result_overwrite:
-      custom_field: Interface Loopback1 - VXLAN_TUNNEL_SOURCE = 'up'
+      custom_field: Interface Loopback1 - VTEP_VXLAN_Tunnel_Source = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback100
       status: up
     result_overwrite:
-      custom_field: Interface Loopback100 - DIAG_VRF_Tenant_A_OP_Zone = 'up'
+      custom_field: Interface Loopback100 - Tenant_A_OP_Zone_VTEP_DIAGNOSTICS = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vxlan1
@@ -298,4 +293,3 @@ anta.tests.routing.generic:
     - 192.0.254.5
 anta.tests.system:
 - VerifyNTP: null
-- VerifyReloadCause: null

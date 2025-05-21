@@ -26,7 +26,7 @@ devices:
       tablesDeletes: 0
       tablesDrops: 0
       tablesInserts: 5
-      tablesLastChangeTime: 1747669335.6408105
+      tablesLastChangeTime: 1747788470.0608895
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -164,49 +164,45 @@ devices:
     "show interfaces description":
       interfaceDescriptions:
         Ethernet1:
-          description: MLAG_s1-leaf2_Ethernet1
+          description: MLAG_PEER_s1-leaf2_Ethernet1
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-spine1_Ethernet2
+          description: P2P_LINK_TO_S1-SPINE1_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-spine2_Ethernet2
+          description: P2P_LINK_TO_S1-SPINE2_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: SERVER_s1-host1_Eth1
+          description: teset etherent4
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
-          description: MLAG_s1-leaf2_Ethernet6
+          description: MLAG_PEER_s1-leaf2_Ethernet6
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback1:
-          description: VXLAN_TUNNEL_SOURCE
+          description: VTEP_VXLAN_Tunnel_Source
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback100:
-          description: DIAG_VRF_Tenant_A_OP_Zone
+          description: Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
-          description: OOB_MANAGEMENT
+          description: ''
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel1:
-          description: MLAG_s1-leaf2_Port-Channel1
+          description: MLAG_PEER_s1-leaf2_Po1
           interfaceStatus: up
           lineProtocolStatus: up
-        Port-Channel4:
-          description: PortChannel
-          interfaceStatus: down
-          lineProtocolStatus: lowerLayerDown
         Vlan110:
           description: Tenant_A_OP_Zone_1
           interfaceStatus: up
@@ -216,15 +212,15 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan3009:
-          description: MLAG_L3_VRF_Tenant_A_OP_Zone
+          description: 'MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone'
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4093:
-          description: MLAG_L3
+          description: MLAG_PEER_L3_PEERING
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4094:
-          description: MLAG
+          description: MLAG_PEER
           interfaceStatus: up
           lineProtocolStatus: up
         Vxlan1:
@@ -233,7 +229,7 @@ devices:
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665648.9236815
+      bootupTimestamp: 1747796367.728659
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -243,13 +239,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2616008
-      memTotal: 49062204
+      memFree: 3256344
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-leaf1
       systemMacAddress: 00:1c:73:c0:c6:12
-      uptime: 7483.405467748642
+      uptime: 20030.37045764923
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -273,65 +269,63 @@ devices:
         interface Ethernet1:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf2_Ethernet1: null
+            description MLAG_PEER_s1-leaf2_Ethernet1: null
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-spine1_Ethernet2: null
+            description P2P_LINK_TO_S1-SPINE1_Ethernet2: null
             ip address 172.30.255.1/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-spine2_Ethernet2: null
+            description P2P_LINK_TO_S1-SPINE2_Ethernet2: null
             ip address 172.30.255.3/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet4:
           cmds:
-            channel-group 4 mode active: null
-            description SERVER_s1-host1_Eth1: null
+            description teset etherent4: null
+            mtu 9000: null
+            spanning-tree bpduguard enable: null
+            spanning-tree portfast: null
+            switchport mode trunk: null
+            switchport trunk allowed vlan 2033: null
           comments: []
         interface Ethernet6:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf2_Ethernet6: null
+            description MLAG_PEER_s1-leaf2_Ethernet6: null
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.3/32: null
           comments: []
         interface Loopback1:
           cmds:
-            description VXLAN_TUNNEL_SOURCE: null
+            description VTEP_VXLAN_Tunnel_Source: null
             ip address 192.0.254.3/32: null
           comments: []
         interface Loopback100:
           cmds:
-            description DIAG_VRF_Tenant_A_OP_Zone: null
+            description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS: null
             ip address 10.255.1.3/32: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.12/24: null
           comments: []
         interface Port-Channel1:
           cmds:
-            description MLAG_s1-leaf2_Port-Channel1: null
+            description MLAG_PEER_s1-leaf2_Po1: null
             switchport mode trunk: null
+            switchport trunk group LEAF_PEER_L3: null
             switchport trunk group MLAG: null
-          comments: []
-        interface Port-Channel4:
-          cmds:
-            description PortChannel: null
-            mlag 4: null
-            switchport mode trunk: null
-            switchport trunk allowed vlan 110-112: null
           comments: []
         interface Vlan110:
           cmds:
@@ -341,20 +335,20 @@ devices:
           comments: []
         interface Vlan3009:
           cmds:
-            description MLAG_L3_VRF_Tenant_A_OP_Zone: null
+            'description MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone': null
             ip address 10.255.251.0/31: null
             mtu 1500: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Vlan4093:
           cmds:
-            description MLAG_L3: null
+            description MLAG_PEER_L3_PEERING: null
             ip address 10.255.251.0/31: null
             mtu 1500: null
           comments: []
         interface Vlan4094:
           cmds:
-            description MLAG: null
+            description MLAG_PEER: null
             ip address 10.255.252.0/31: null
             mtu 1500: null
             no autostate: null
@@ -365,8 +359,9 @@ devices:
             vxlan source-interface Loopback1: null
             vxlan udp-port 4789: null
             vxlan virtual-router encapsulation mac-address mlag-system-id: null
-            vxlan vlan 110 vni 10110: null
+            vxlan vlan 110 vni 20110: null
             vxlan vlan 160 vni 55160: null
+            vxlan vlan 360 vni 55360: null
             vxlan vrf Tenant_A_OP_Zone vni 10: null
           comments: []
         ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.3: null
@@ -376,10 +371,6 @@ devices:
           cmds:
             seq 10 permit 192.0.255.0/24 eq 32: null
             seq 20 permit 192.0.254.0/24 eq 32: null
-          comments: []
-        ip prefix-list PL-MLAG-PEER-VRFS:
-          cmds:
-            seq 10 permit 10.255.251.0/31: null
           comments: []
         ip radius source-interface Management0: null
         ip route 0.0.0.0/0 192.168.0.1: null
@@ -412,13 +403,6 @@ devices:
           cmds:
             match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY: null
           comments: []
-        route-map RM-CONN-2-BGP-VRFS deny 10:
-          cmds:
-            match ip address prefix-list PL-MLAG-PEER-VRFS: null
-          comments: []
-        route-map RM-CONN-2-BGP-VRFS permit 20:
-          cmds: {}
-          comments: []
         route-map RM-MLAG-PEER-IN permit 10:
           cmds:
             description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing: null
@@ -444,7 +428,7 @@ devices:
             graceful-restart: null
             graceful-restart restart-time 300: null
             maximum-paths 4 ecmp 4: null
-            neighbor 10.255.251.1 description s1-leaf2_Vlan4093: null
+            neighbor 10.255.251.1 description s1-leaf2: null
             neighbor 10.255.251.1 peer group MLAG-IPv4-UNDERLAY-PEER: null
             neighbor 172.30.255.0 description s1-spine1_Ethernet2: null
             neighbor 172.30.255.0 peer group IPv4-UNDERLAY-PEERS: null
@@ -452,10 +436,10 @@ devices:
             neighbor 172.30.255.2 description s1-spine2_Ethernet2: null
             neighbor 172.30.255.2 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.2 remote-as 65001: null
-            neighbor 192.0.255.1 description s1-spine1_Loopback0: null
+            neighbor 192.0.255.1 description s1-spine1: null
             neighbor 192.0.255.1 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.1 remote-as 65001: null
-            neighbor 192.0.255.2 description s1-spine2_Loopback0: null
+            neighbor 192.0.255.2 description s1-spine2: null
             neighbor 192.0.255.2 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.2 remote-as 65001: null
             neighbor EVPN-OVERLAY-PEERS bfd: null
@@ -480,26 +464,29 @@ devices:
             no bgp default ipv4-unicast: null
             redistribute connected route-map RM-CONN-2-BGP: null
             router-id 192.0.255.3: null
-            vlan-aware-bundle Tenant_A_OP_Zone:
+            vlan 110:
               cmds:
-                rd 192.0.255.3:10: null
+                rd 192.0.255.3:20110: null
                 redistribute learned: null
-                route-target both 10:10: null
-                vlan 110: null
+                route-target both 20110:20110: null
               comments: []
-            vlan-aware-bundle Tenant_A_VMOTION:
+            vlan 160:
               cmds:
                 rd 192.0.255.3:55160: null
                 redistribute learned: null
                 route-target both 55160:55160: null
-                vlan 160: null
+              comments: []
+            vlan 360:
+              cmds:
+                rd 192.0.255.3:55360: null
+                redistribute learned: null
+                route-target both 55360:55360: null
               comments: []
             vrf Tenant_A_OP_Zone:
               cmds:
-                neighbor 10.255.251.1 description s1-leaf2_Vlan3009: null
                 neighbor 10.255.251.1 peer group MLAG-IPv4-UNDERLAY-PEER: null
                 rd 192.0.255.3:10: null
-                redistribute connected route-map RM-CONN-2-BGP-VRFS: null
+                redistribute connected: null
                 route-target export evpn 10:10: null
                 route-target import evpn 10:10: null
                 router-id 192.0.255.3: null
@@ -541,17 +528,21 @@ devices:
           comments: []
         vlan 3009:
           cmds:
-            name MLAG_L3_VRF_Tenant_A_OP_Zone: null
-            trunk group MLAG: null
+            name MLAG_iBGP_Tenant_A_OP_Zone: null
+            trunk group LEAF_PEER_L3: null
+          comments: []
+        vlan 360:
+          cmds:
+            name Tenant_A_V360: null
           comments: []
         vlan 4093:
           cmds:
-            name MLAG_L3: null
-            trunk group MLAG: null
+            name LEAF_PEER_L3: null
+            trunk group LEAF_PEER_L3: null
           comments: []
         vlan 4094:
           cmds:
-            name MLAG: null
+            name MLAG_PEER: null
             trunk group MLAG: null
           comments: []
         vlan internal order ascending range 1006 1199: null
@@ -585,10 +576,10 @@ devices:
         port: Ethernet6
         ttl: 120
       tablesAgeOuts: 0
-      tablesDeletes: 0
+      tablesDeletes: 3
       tablesDrops: 0
-      tablesInserts: 5
-      tablesLastChangeTime: 1747669335.642114
+      tablesInserts: 8
+      tablesLastChangeTime: 1747810846.8893611
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -614,6 +605,18 @@ devices:
           lineProtocolStatus: up
           mtu: 1500
           name: Ethernet3
+          nonRoutableClassEIntf: false
+        Ethernet4:
+          interfaceAddress:
+            ipAddr:
+              address: 10.192.195.21
+              maskLen: 24
+          interfaceStatus: connected
+          ipv4Routable0: false
+          ipv4Routable240: false
+          lineProtocolStatus: up
+          mtu: 9000
+          name: Ethernet4
           nonRoutableClassEIntf: false
         Loopback0:
           interfaceAddress:
@@ -726,49 +729,45 @@ devices:
     "show interfaces description":
       interfaceDescriptions:
         Ethernet1:
-          description: MLAG_s1-leaf1_Ethernet1
+          description: MLAG_PEER_s1-leaf1_Ethernet1
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-spine1_Ethernet3
+          description: P2P_LINK_TO_S1-SPINE1_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-spine2_Ethernet3
+          description: P2P_LINK_TO_S1-SPINE2_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: SERVER_s1-host1_Eth2
+          description: Routed_Interface_4 int_routed_host
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
-          description: MLAG_s1-leaf1_Ethernet6
+          description: MLAG_PEER_s1-leaf1_Ethernet6
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback1:
-          description: VXLAN_TUNNEL_SOURCE
+          description: VTEP_VXLAN_Tunnel_Source
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback100:
-          description: DIAG_VRF_Tenant_A_OP_Zone
+          description: Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
-          description: OOB_MANAGEMENT
+          description: ''
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel1:
-          description: MLAG_s1-leaf1_Port-Channel1
+          description: MLAG_PEER_s1-leaf1_Po1
           interfaceStatus: up
           lineProtocolStatus: up
-        Port-Channel4:
-          description: PortChannel
-          interfaceStatus: down
-          lineProtocolStatus: lowerLayerDown
         Vlan110:
           description: Tenant_A_OP_Zone_1
           interfaceStatus: up
@@ -778,15 +777,15 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan3009:
-          description: MLAG_L3_VRF_Tenant_A_OP_Zone
+          description: 'MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone'
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4093:
-          description: MLAG_L3
+          description: MLAG_PEER_L3_PEERING
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4094:
-          description: MLAG
+          description: MLAG_PEER
           interfaceStatus: up
           lineProtocolStatus: up
         Vxlan1:
@@ -795,7 +794,7 @@ devices:
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665651.6678743
+      bootupTimestamp: 1747796369.7178352
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -805,13 +804,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2603740
-      memTotal: 49062204
+      memFree: 3255588
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-leaf2
       systemMacAddress: 00:1c:73:c0:c6:13
-      uptime: 7480.556604862213
+      uptime: 20028.395918130875
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -835,65 +834,62 @@ devices:
         interface Ethernet1:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf1_Ethernet1: null
+            description MLAG_PEER_s1-leaf1_Ethernet1: null
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-spine1_Ethernet3: null
+            description P2P_LINK_TO_S1-SPINE1_Ethernet3: null
             ip address 172.30.255.5/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-spine2_Ethernet3: null
+            description P2P_LINK_TO_S1-SPINE2_Ethernet3: null
             ip address 172.30.255.7/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet4:
           cmds:
-            channel-group 4 mode active: null
-            description SERVER_s1-host1_Eth2: null
+            description Routed_Interface_4 int_routed_host: null
+            ip address 10.192.195.21/24: null
+            mtu 9000: null
+            no switchport: null
+            vrf Tenant_A_OP_Zone: null
           comments: []
         interface Ethernet6:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf1_Ethernet6: null
+            description MLAG_PEER_s1-leaf1_Ethernet6: null
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.4/32: null
           comments: []
         interface Loopback1:
           cmds:
-            description VXLAN_TUNNEL_SOURCE: null
+            description VTEP_VXLAN_Tunnel_Source: null
             ip address 192.0.254.3/32: null
           comments: []
         interface Loopback100:
           cmds:
-            description DIAG_VRF_Tenant_A_OP_Zone: null
+            description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS: null
             ip address 10.255.1.4/32: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.13/24: null
           comments: []
         interface Port-Channel1:
           cmds:
-            description MLAG_s1-leaf1_Port-Channel1: null
+            description MLAG_PEER_s1-leaf1_Po1: null
             switchport mode trunk: null
+            switchport trunk group LEAF_PEER_L3: null
             switchport trunk group MLAG: null
-          comments: []
-        interface Port-Channel4:
-          cmds:
-            description PortChannel: null
-            mlag 4: null
-            switchport mode trunk: null
-            switchport trunk allowed vlan 110-112: null
           comments: []
         interface Vlan110:
           cmds:
@@ -903,20 +899,20 @@ devices:
           comments: []
         interface Vlan3009:
           cmds:
-            description MLAG_L3_VRF_Tenant_A_OP_Zone: null
+            'description MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone': null
             ip address 10.255.251.1/31: null
             mtu 1500: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Vlan4093:
           cmds:
-            description MLAG_L3: null
+            description MLAG_PEER_L3_PEERING: null
             ip address 10.255.251.1/31: null
             mtu 1500: null
           comments: []
         interface Vlan4094:
           cmds:
-            description MLAG: null
+            description MLAG_PEER: null
             ip address 10.255.252.1/31: null
             mtu 1500: null
             no autostate: null
@@ -927,8 +923,9 @@ devices:
             vxlan source-interface Loopback1: null
             vxlan udp-port 4789: null
             vxlan virtual-router encapsulation mac-address mlag-system-id: null
-            vxlan vlan 110 vni 10110: null
+            vxlan vlan 110 vni 20110: null
             vxlan vlan 160 vni 55160: null
+            vxlan vlan 360 vni 55360: null
             vxlan vrf Tenant_A_OP_Zone vni 10: null
           comments: []
         ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.4: null
@@ -938,10 +935,6 @@ devices:
           cmds:
             seq 10 permit 192.0.255.0/24 eq 32: null
             seq 20 permit 192.0.254.0/24 eq 32: null
-          comments: []
-        ip prefix-list PL-MLAG-PEER-VRFS:
-          cmds:
-            seq 10 permit 10.255.251.0/31: null
           comments: []
         ip radius source-interface Management0: null
         ip route 0.0.0.0/0 192.168.0.1: null
@@ -974,13 +967,6 @@ devices:
           cmds:
             match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY: null
           comments: []
-        route-map RM-CONN-2-BGP-VRFS deny 10:
-          cmds:
-            match ip address prefix-list PL-MLAG-PEER-VRFS: null
-          comments: []
-        route-map RM-CONN-2-BGP-VRFS permit 20:
-          cmds: {}
-          comments: []
         route-map RM-MLAG-PEER-IN permit 10:
           cmds:
             description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing: null
@@ -1006,7 +992,7 @@ devices:
             graceful-restart: null
             graceful-restart restart-time 300: null
             maximum-paths 4 ecmp 4: null
-            neighbor 10.255.251.0 description s1-leaf1_Vlan4093: null
+            neighbor 10.255.251.0 description s1-leaf1: null
             neighbor 10.255.251.0 peer group MLAG-IPv4-UNDERLAY-PEER: null
             neighbor 172.30.255.4 description s1-spine1_Ethernet3: null
             neighbor 172.30.255.4 peer group IPv4-UNDERLAY-PEERS: null
@@ -1014,10 +1000,10 @@ devices:
             neighbor 172.30.255.6 description s1-spine2_Ethernet3: null
             neighbor 172.30.255.6 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.6 remote-as 65001: null
-            neighbor 192.0.255.1 description s1-spine1_Loopback0: null
+            neighbor 192.0.255.1 description s1-spine1: null
             neighbor 192.0.255.1 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.1 remote-as 65001: null
-            neighbor 192.0.255.2 description s1-spine2_Loopback0: null
+            neighbor 192.0.255.2 description s1-spine2: null
             neighbor 192.0.255.2 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.2 remote-as 65001: null
             neighbor EVPN-OVERLAY-PEERS bfd: null
@@ -1042,26 +1028,29 @@ devices:
             no bgp default ipv4-unicast: null
             redistribute connected route-map RM-CONN-2-BGP: null
             router-id 192.0.255.4: null
-            vlan-aware-bundle Tenant_A_OP_Zone:
+            vlan 110:
               cmds:
-                rd 192.0.255.4:10: null
+                rd 192.0.255.4:20110: null
                 redistribute learned: null
-                route-target both 10:10: null
-                vlan 110: null
+                route-target both 20110:20110: null
               comments: []
-            vlan-aware-bundle Tenant_A_VMOTION:
+            vlan 160:
               cmds:
                 rd 192.0.255.4:55160: null
                 redistribute learned: null
                 route-target both 55160:55160: null
-                vlan 160: null
+              comments: []
+            vlan 360:
+              cmds:
+                rd 192.0.255.4:55360: null
+                redistribute learned: null
+                route-target both 55360:55360: null
               comments: []
             vrf Tenant_A_OP_Zone:
               cmds:
-                neighbor 10.255.251.0 description s1-leaf1_Vlan3009: null
                 neighbor 10.255.251.0 peer group MLAG-IPv4-UNDERLAY-PEER: null
                 rd 192.0.255.4:10: null
-                redistribute connected route-map RM-CONN-2-BGP-VRFS: null
+                redistribute connected: null
                 route-target export evpn 10:10: null
                 route-target import evpn 10:10: null
                 router-id 192.0.255.4: null
@@ -1103,17 +1092,21 @@ devices:
           comments: []
         vlan 3009:
           cmds:
-            name MLAG_L3_VRF_Tenant_A_OP_Zone: null
-            trunk group MLAG: null
+            name MLAG_iBGP_Tenant_A_OP_Zone: null
+            trunk group LEAF_PEER_L3: null
+          comments: []
+        vlan 360:
+          cmds:
+            name Tenant_A_V360: null
           comments: []
         vlan 4093:
           cmds:
-            name MLAG_L3: null
-            trunk group MLAG: null
+            name LEAF_PEER_L3: null
+            trunk group LEAF_PEER_L3: null
           comments: []
         vlan 4094:
           cmds:
-            name MLAG: null
+            name MLAG_PEER: null
             trunk group MLAG: null
           comments: []
         vlan internal order ascending range 1006 1199: null
@@ -1147,10 +1140,10 @@ devices:
         port: Ethernet6
         ttl: 120
       tablesAgeOuts: 0
-      tablesDeletes: 0
+      tablesDeletes: 1
       tablesDrops: 0
-      tablesInserts: 5
-      tablesLastChangeTime: 1747669335.6420538
+      tablesInserts: 6
+      tablesLastChangeTime: 1747808757.016127
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -1288,35 +1281,35 @@ devices:
     "show interfaces description":
       interfaceDescriptions:
         Ethernet1:
-          description: MLAG_s1-leaf4_Ethernet1
+          description: MLAG_PEER_s1-leaf4_Ethernet1
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-spine1_Ethernet4
+          description: P2P_LINK_TO_S1-SPINE1_Ethernet4
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-spine2_Ethernet4
+          description: P2P_LINK_TO_S1-SPINE2_Ethernet4
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: SERVER_s1-host2_Eth1
+          description: s1-host2_Eth1
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
-          description: MLAG_s1-leaf4_Ethernet6
+          description: MLAG_PEER_s1-leaf4_Ethernet6
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback1:
-          description: VXLAN_TUNNEL_SOURCE
+          description: VTEP_VXLAN_Tunnel_Source
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback100:
-          description: DIAG_VRF_Tenant_A_OP_Zone
+          description: Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
@@ -1324,11 +1317,11 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel1:
-          description: MLAG_s1-leaf4_Port-Channel1
+          description: MLAG_PEER_s1-leaf4_Po1
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel4:
-          description: PortChannel
+          description: s1-host2_PortChannel
           interfaceStatus: down
           lineProtocolStatus: lowerLayerDown
         Vlan110:
@@ -1340,15 +1333,15 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan3009:
-          description: MLAG_L3_VRF_Tenant_A_OP_Zone
+          description: 'MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone'
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4093:
-          description: MLAG_L3
+          description: MLAG_PEER_L3_PEERING
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4094:
-          description: MLAG
+          description: MLAG_PEER
           interfaceStatus: up
           lineProtocolStatus: up
         Vxlan1:
@@ -1357,7 +1350,7 @@ devices:
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665653.8730292
+      bootupTimestamp: 1747796368.6717424
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -1367,13 +1360,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2585164
-      memTotal: 49062204
+      memFree: 3255972
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-leaf3
       systemMacAddress: 00:1c:73:c0:c6:14
-      uptime: 7478.229336261749
+      uptime: 20029.416185855865
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -1397,18 +1390,18 @@ devices:
         interface Ethernet1:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf4_Ethernet1: null
+            description MLAG_PEER_s1-leaf4_Ethernet1: null
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-spine1_Ethernet4: null
+            description P2P_LINK_TO_S1-SPINE1_Ethernet4: null
             ip address 172.30.255.9/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-spine2_Ethernet4: null
+            description P2P_LINK_TO_S1-SPINE2_Ethernet4: null
             ip address 172.30.255.11/31: null
             mtu 1500: null
             no switchport: null
@@ -1416,46 +1409,48 @@ devices:
         interface Ethernet4:
           cmds:
             channel-group 4 mode active: null
-            description SERVER_s1-host2_Eth1: null
+            description s1-host2_Eth1: null
           comments: []
         interface Ethernet6:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf4_Ethernet6: null
+            description MLAG_PEER_s1-leaf4_Ethernet6: null
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.5/32: null
           comments: []
         interface Loopback1:
           cmds:
-            description VXLAN_TUNNEL_SOURCE: null
+            description VTEP_VXLAN_Tunnel_Source: null
             ip address 192.0.254.5/32: null
           comments: []
         interface Loopback100:
           cmds:
-            description DIAG_VRF_Tenant_A_OP_Zone: null
+            description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS: null
             ip address 10.255.1.5/32: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.14/24: null
           comments: []
         interface Port-Channel1:
           cmds:
-            description MLAG_s1-leaf4_Port-Channel1: null
+            description MLAG_PEER_s1-leaf4_Po1: null
             switchport mode trunk: null
+            switchport trunk group LEAF_PEER_L3: null
             switchport trunk group MLAG: null
           comments: []
         interface Port-Channel4:
           cmds:
-            description PortChannel: null
+            description s1-host2_PortChannel: null
             mlag 4: null
+            mtu 9000: null
             switchport mode trunk: null
-            switchport trunk allowed vlan 110-112: null
+            switchport trunk allowed vlan 110-112,210-212,360-960: null
           comments: []
         interface Vlan110:
           cmds:
@@ -1465,20 +1460,20 @@ devices:
           comments: []
         interface Vlan3009:
           cmds:
-            description MLAG_L3_VRF_Tenant_A_OP_Zone: null
+            'description MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone': null
             ip address 10.255.251.4/31: null
             mtu 1500: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Vlan4093:
           cmds:
-            description MLAG_L3: null
+            description MLAG_PEER_L3_PEERING: null
             ip address 10.255.251.4/31: null
             mtu 1500: null
           comments: []
         interface Vlan4094:
           cmds:
-            description MLAG: null
+            description MLAG_PEER: null
             ip address 10.255.252.4/31: null
             mtu 1500: null
             no autostate: null
@@ -1489,8 +1484,9 @@ devices:
             vxlan source-interface Loopback1: null
             vxlan udp-port 4789: null
             vxlan virtual-router encapsulation mac-address mlag-system-id: null
-            vxlan vlan 110 vni 10110: null
+            vxlan vlan 110 vni 20110: null
             vxlan vlan 160 vni 55160: null
+            vxlan vlan 360 vni 55360: null
             vxlan vrf Tenant_A_OP_Zone vni 10: null
           comments: []
         ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.5: null
@@ -1500,10 +1496,6 @@ devices:
           cmds:
             seq 10 permit 192.0.255.0/24 eq 32: null
             seq 20 permit 192.0.254.0/24 eq 32: null
-          comments: []
-        ip prefix-list PL-MLAG-PEER-VRFS:
-          cmds:
-            seq 10 permit 10.255.251.4/31: null
           comments: []
         ip radius source-interface Management0: null
         ip route 0.0.0.0/0 192.168.0.1: null
@@ -1536,13 +1528,6 @@ devices:
           cmds:
             match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY: null
           comments: []
-        route-map RM-CONN-2-BGP-VRFS deny 10:
-          cmds:
-            match ip address prefix-list PL-MLAG-PEER-VRFS: null
-          comments: []
-        route-map RM-CONN-2-BGP-VRFS permit 20:
-          cmds: {}
-          comments: []
         route-map RM-MLAG-PEER-IN permit 10:
           cmds:
             description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing: null
@@ -1568,7 +1553,7 @@ devices:
             graceful-restart: null
             graceful-restart restart-time 300: null
             maximum-paths 4 ecmp 4: null
-            neighbor 10.255.251.5 description s1-leaf4_Vlan4093: null
+            neighbor 10.255.251.5 description s1-leaf4: null
             neighbor 10.255.251.5 peer group MLAG-IPv4-UNDERLAY-PEER: null
             neighbor 172.30.255.10 description s1-spine2_Ethernet4: null
             neighbor 172.30.255.10 peer group IPv4-UNDERLAY-PEERS: null
@@ -1576,10 +1561,10 @@ devices:
             neighbor 172.30.255.8 description s1-spine1_Ethernet4: null
             neighbor 172.30.255.8 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.8 remote-as 65001: null
-            neighbor 192.0.255.1 description s1-spine1_Loopback0: null
+            neighbor 192.0.255.1 description s1-spine1: null
             neighbor 192.0.255.1 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.1 remote-as 65001: null
-            neighbor 192.0.255.2 description s1-spine2_Loopback0: null
+            neighbor 192.0.255.2 description s1-spine2: null
             neighbor 192.0.255.2 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.2 remote-as 65001: null
             neighbor EVPN-OVERLAY-PEERS bfd: null
@@ -1604,26 +1589,29 @@ devices:
             no bgp default ipv4-unicast: null
             redistribute connected route-map RM-CONN-2-BGP: null
             router-id 192.0.255.5: null
-            vlan-aware-bundle Tenant_A_OP_Zone:
+            vlan 110:
               cmds:
-                rd 192.0.255.5:10: null
+                rd 192.0.255.5:20110: null
                 redistribute learned: null
-                route-target both 10:10: null
-                vlan 110: null
+                route-target both 20110:20110: null
               comments: []
-            vlan-aware-bundle Tenant_A_VMOTION:
+            vlan 160:
               cmds:
                 rd 192.0.255.5:55160: null
                 redistribute learned: null
                 route-target both 55160:55160: null
-                vlan 160: null
+              comments: []
+            vlan 360:
+              cmds:
+                rd 192.0.255.5:55360: null
+                redistribute learned: null
+                route-target both 55360:55360: null
               comments: []
             vrf Tenant_A_OP_Zone:
               cmds:
-                neighbor 10.255.251.5 description s1-leaf4_Vlan3009: null
                 neighbor 10.255.251.5 peer group MLAG-IPv4-UNDERLAY-PEER: null
                 rd 192.0.255.5:10: null
-                redistribute connected route-map RM-CONN-2-BGP-VRFS: null
+                redistribute connected: null
                 route-target export evpn 10:10: null
                 route-target import evpn 10:10: null
                 router-id 192.0.255.5: null
@@ -1665,17 +1653,21 @@ devices:
           comments: []
         vlan 3009:
           cmds:
-            name MLAG_L3_VRF_Tenant_A_OP_Zone: null
-            trunk group MLAG: null
+            name MLAG_iBGP_Tenant_A_OP_Zone: null
+            trunk group LEAF_PEER_L3: null
+          comments: []
+        vlan 360:
+          cmds:
+            name Tenant_A_V360: null
           comments: []
         vlan 4093:
           cmds:
-            name MLAG_L3: null
-            trunk group MLAG: null
+            name LEAF_PEER_L3: null
+            trunk group LEAF_PEER_L3: null
           comments: []
         vlan 4094:
           cmds:
-            name MLAG: null
+            name MLAG_PEER: null
             trunk group MLAG: null
           comments: []
         vlan internal order ascending range 1006 1199: null
@@ -1709,10 +1701,10 @@ devices:
         port: Ethernet6
         ttl: 120
       tablesAgeOuts: 0
-      tablesDeletes: 0
+      tablesDeletes: 1
       tablesDrops: 0
-      tablesInserts: 5
-      tablesLastChangeTime: 1747669335.6421444
+      tablesInserts: 6
+      tablesLastChangeTime: 1747808773.015341
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -1850,47 +1842,47 @@ devices:
     "show interfaces description":
       interfaceDescriptions:
         Ethernet1:
-          description: MLAG_s1-leaf3_Ethernet1
+          description: MLAG_PEER_s1-leaf3_Ethernet1
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-spine1_Ethernet5
+          description: P2P_LINK_TO_S1-SPINE1_Ethernet5
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-spine2_Ethernet5
+          description: P2P_LINK_TO_S1-SPINE2_Ethernet5
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: SERVER_s1-host2_Eth2
+          description: s1-host2_Eth2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
-          description: MLAG_s1-leaf3_Ethernet6
+          description: MLAG_PEER_s1-leaf3_Ethernet6
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback1:
-          description: VXLAN_TUNNEL_SOURCE
+          description: VTEP_VXLAN_Tunnel_Source
           interfaceStatus: up
           lineProtocolStatus: up
         Loopback100:
-          description: DIAG_VRF_Tenant_A_OP_Zone
+          description: Tenant_A_OP_Zone_VTEP_DIAGNOSTICS
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
-          description: OOB_MANAGEMENT
+          description: ''
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel1:
-          description: MLAG_s1-leaf3_Port-Channel1
+          description: MLAG_PEER_s1-leaf3_Po1
           interfaceStatus: up
           lineProtocolStatus: up
         Port-Channel4:
-          description: PortChannel
+          description: s1-host2_PortChannel
           interfaceStatus: down
           lineProtocolStatus: lowerLayerDown
         Vlan110:
@@ -1902,15 +1894,15 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan3009:
-          description: MLAG_L3_VRF_Tenant_A_OP_Zone
+          description: 'MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone'
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4093:
-          description: MLAG_L3
+          description: MLAG_PEER_L3_PEERING
           interfaceStatus: up
           lineProtocolStatus: up
         Vlan4094:
-          description: MLAG
+          description: MLAG_PEER
           interfaceStatus: up
           lineProtocolStatus: up
         Vxlan1:
@@ -1919,7 +1911,7 @@ devices:
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665656.0321808
+      bootupTimestamp: 1747796370.6809204
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -1929,13 +1921,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2863624
-      memTotal: 49062204
+      memFree: 3310604
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-leaf4
       systemMacAddress: 00:1c:73:c0:c6:15
-      uptime: 7479.350704908371
+      uptime: 20030.330194950104
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -1959,18 +1951,18 @@ devices:
         interface Ethernet1:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf3_Ethernet1: null
+            description MLAG_PEER_s1-leaf3_Ethernet1: null
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-spine1_Ethernet5: null
+            description P2P_LINK_TO_S1-SPINE1_Ethernet5: null
             ip address 172.30.255.13/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-spine2_Ethernet5: null
+            description P2P_LINK_TO_S1-SPINE2_Ethernet5: null
             ip address 172.30.255.15/31: null
             mtu 1500: null
             no switchport: null
@@ -1978,46 +1970,48 @@ devices:
         interface Ethernet4:
           cmds:
             channel-group 4 mode active: null
-            description SERVER_s1-host2_Eth2: null
+            description s1-host2_Eth2: null
           comments: []
         interface Ethernet6:
           cmds:
             channel-group 1 mode active: null
-            description MLAG_s1-leaf3_Ethernet6: null
+            description MLAG_PEER_s1-leaf3_Ethernet6: null
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.6/32: null
           comments: []
         interface Loopback1:
           cmds:
-            description VXLAN_TUNNEL_SOURCE: null
+            description VTEP_VXLAN_Tunnel_Source: null
             ip address 192.0.254.5/32: null
           comments: []
         interface Loopback100:
           cmds:
-            description DIAG_VRF_Tenant_A_OP_Zone: null
+            description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS: null
             ip address 10.255.1.6/32: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.15/24: null
           comments: []
         interface Port-Channel1:
           cmds:
-            description MLAG_s1-leaf3_Port-Channel1: null
+            description MLAG_PEER_s1-leaf3_Po1: null
             switchport mode trunk: null
+            switchport trunk group LEAF_PEER_L3: null
             switchport trunk group MLAG: null
           comments: []
         interface Port-Channel4:
           cmds:
-            description PortChannel: null
+            description s1-host2_PortChannel: null
             mlag 4: null
+            mtu 9000: null
             switchport mode trunk: null
-            switchport trunk allowed vlan 110-112: null
+            switchport trunk allowed vlan 110-112,210-212,360-960: null
           comments: []
         interface Vlan110:
           cmds:
@@ -2027,20 +2021,20 @@ devices:
           comments: []
         interface Vlan3009:
           cmds:
-            description MLAG_L3_VRF_Tenant_A_OP_Zone: null
+            'description MLAG_PEER_L3_iBGP: vrf Tenant_A_OP_Zone': null
             ip address 10.255.251.5/31: null
             mtu 1500: null
             vrf Tenant_A_OP_Zone: null
           comments: []
         interface Vlan4093:
           cmds:
-            description MLAG_L3: null
+            description MLAG_PEER_L3_PEERING: null
             ip address 10.255.251.5/31: null
             mtu 1500: null
           comments: []
         interface Vlan4094:
           cmds:
-            description MLAG: null
+            description MLAG_PEER: null
             ip address 10.255.252.5/31: null
             mtu 1500: null
             no autostate: null
@@ -2051,8 +2045,9 @@ devices:
             vxlan source-interface Loopback1: null
             vxlan udp-port 4789: null
             vxlan virtual-router encapsulation mac-address mlag-system-id: null
-            vxlan vlan 110 vni 10110: null
+            vxlan vlan 110 vni 20110: null
             vxlan vlan 160 vni 55160: null
+            vxlan vlan 360 vni 55360: null
             vxlan vrf Tenant_A_OP_Zone vni 10: null
           comments: []
         ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.6: null
@@ -2062,10 +2057,6 @@ devices:
           cmds:
             seq 10 permit 192.0.255.0/24 eq 32: null
             seq 20 permit 192.0.254.0/24 eq 32: null
-          comments: []
-        ip prefix-list PL-MLAG-PEER-VRFS:
-          cmds:
-            seq 10 permit 10.255.251.4/31: null
           comments: []
         ip radius source-interface Management0: null
         ip route 0.0.0.0/0 192.168.0.1: null
@@ -2098,13 +2089,6 @@ devices:
           cmds:
             match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY: null
           comments: []
-        route-map RM-CONN-2-BGP-VRFS deny 10:
-          cmds:
-            match ip address prefix-list PL-MLAG-PEER-VRFS: null
-          comments: []
-        route-map RM-CONN-2-BGP-VRFS permit 20:
-          cmds: {}
-          comments: []
         route-map RM-MLAG-PEER-IN permit 10:
           cmds:
             description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing: null
@@ -2130,7 +2114,7 @@ devices:
             graceful-restart: null
             graceful-restart restart-time 300: null
             maximum-paths 4 ecmp 4: null
-            neighbor 10.255.251.4 description s1-leaf3_Vlan4093: null
+            neighbor 10.255.251.4 description s1-leaf3: null
             neighbor 10.255.251.4 peer group MLAG-IPv4-UNDERLAY-PEER: null
             neighbor 172.30.255.12 description s1-spine1_Ethernet5: null
             neighbor 172.30.255.12 peer group IPv4-UNDERLAY-PEERS: null
@@ -2138,10 +2122,10 @@ devices:
             neighbor 172.30.255.14 description s1-spine2_Ethernet5: null
             neighbor 172.30.255.14 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.14 remote-as 65001: null
-            neighbor 192.0.255.1 description s1-spine1_Loopback0: null
+            neighbor 192.0.255.1 description s1-spine1: null
             neighbor 192.0.255.1 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.1 remote-as 65001: null
-            neighbor 192.0.255.2 description s1-spine2_Loopback0: null
+            neighbor 192.0.255.2 description s1-spine2: null
             neighbor 192.0.255.2 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.2 remote-as 65001: null
             neighbor EVPN-OVERLAY-PEERS bfd: null
@@ -2166,26 +2150,29 @@ devices:
             no bgp default ipv4-unicast: null
             redistribute connected route-map RM-CONN-2-BGP: null
             router-id 192.0.255.6: null
-            vlan-aware-bundle Tenant_A_OP_Zone:
+            vlan 110:
               cmds:
-                rd 192.0.255.6:10: null
+                rd 192.0.255.6:20110: null
                 redistribute learned: null
-                route-target both 10:10: null
-                vlan 110: null
+                route-target both 20110:20110: null
               comments: []
-            vlan-aware-bundle Tenant_A_VMOTION:
+            vlan 160:
               cmds:
                 rd 192.0.255.6:55160: null
                 redistribute learned: null
                 route-target both 55160:55160: null
-                vlan 160: null
+              comments: []
+            vlan 360:
+              cmds:
+                rd 192.0.255.6:55360: null
+                redistribute learned: null
+                route-target both 55360:55360: null
               comments: []
             vrf Tenant_A_OP_Zone:
               cmds:
-                neighbor 10.255.251.4 description s1-leaf3_Vlan3009: null
                 neighbor 10.255.251.4 peer group MLAG-IPv4-UNDERLAY-PEER: null
                 rd 192.0.255.6:10: null
-                redistribute connected route-map RM-CONN-2-BGP-VRFS: null
+                redistribute connected: null
                 route-target export evpn 10:10: null
                 route-target import evpn 10:10: null
                 router-id 192.0.255.6: null
@@ -2227,17 +2214,21 @@ devices:
           comments: []
         vlan 3009:
           cmds:
-            name MLAG_L3_VRF_Tenant_A_OP_Zone: null
-            trunk group MLAG: null
+            name MLAG_iBGP_Tenant_A_OP_Zone: null
+            trunk group LEAF_PEER_L3: null
+          comments: []
+        vlan 360:
+          cmds:
+            name Tenant_A_V360: null
           comments: []
         vlan 4093:
           cmds:
-            name MLAG_L3: null
-            trunk group MLAG: null
+            name LEAF_PEER_L3: null
+            trunk group LEAF_PEER_L3: null
           comments: []
         vlan 4094:
           cmds:
-            name MLAG: null
+            name MLAG_PEER: null
             trunk group MLAG: null
           comments: []
         vlan internal order ascending range 1006 1199: null
@@ -2278,7 +2269,7 @@ devices:
       tablesDeletes: 2
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1747669335.6567826
+      tablesLastChangeTime: 1747788471.198613
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -2360,19 +2351,19 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-leaf1_Ethernet2
+          description: P2P_LINK_TO_S1-LEAF1_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-leaf2_Ethernet2
+          description: P2P_LINK_TO_S1-LEAF2_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: P2P_s1-leaf3_Ethernet2
+          description: P2P_LINK_TO_S1-LEAF3_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet5:
-          description: P2P_s1-leaf4_Ethernet2
+          description: P2P_LINK_TO_S1-LEAF4_Ethernet2
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
@@ -2388,16 +2379,16 @@ devices:
           interfaceStatus: down
           lineProtocolStatus: down
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
-          description: OOB_MANAGEMENT
+          description: ''
           interfaceStatus: up
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665644.520372
+      bootupTimestamp: 1747796368.993771
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -2407,13 +2398,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2585164
-      memTotal: 49062204
+      memFree: 3251052
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-spine1
       systemMacAddress: 00:1c:73:c0:c6:10
-      uptime: 7487.573816776276
+      uptime: 20029.156707525253
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -2439,28 +2430,28 @@ devices:
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-leaf1_Ethernet2: null
+            description P2P_LINK_TO_S1-LEAF1_Ethernet2: null
             ip address 172.30.255.0/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-leaf2_Ethernet2: null
+            description P2P_LINK_TO_S1-LEAF2_Ethernet2: null
             ip address 172.30.255.4/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet4:
           cmds:
-            description P2P_s1-leaf3_Ethernet2: null
+            description P2P_LINK_TO_S1-LEAF3_Ethernet2: null
             ip address 172.30.255.8/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet5:
           cmds:
-            description P2P_s1-leaf4_Ethernet2: null
+            description P2P_LINK_TO_S1-LEAF4_Ethernet2: null
             ip address 172.30.255.12/31: null
             mtu 1500: null
             no switchport: null
@@ -2476,12 +2467,12 @@ devices:
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.1/32: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.10/24: null
           comments: []
         ip name-server vrf default 192.168.2.1: null
@@ -2540,16 +2531,16 @@ devices:
             neighbor 172.30.255.9 description s1-leaf3_Ethernet2: null
             neighbor 172.30.255.9 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.9 remote-as 65102: null
-            neighbor 192.0.255.3 description s1-leaf1_Loopback0: null
+            neighbor 192.0.255.3 description s1-leaf1: null
             neighbor 192.0.255.3 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.3 remote-as 65101: null
-            neighbor 192.0.255.4 description s1-leaf2_Loopback0: null
+            neighbor 192.0.255.4 description s1-leaf2: null
             neighbor 192.0.255.4 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.4 remote-as 65101: null
-            neighbor 192.0.255.5 description s1-leaf3_Loopback0: null
+            neighbor 192.0.255.5 description s1-leaf3: null
             neighbor 192.0.255.5 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.5 remote-as 65102: null
-            neighbor 192.0.255.6 description s1-leaf4_Loopback0: null
+            neighbor 192.0.255.6 description s1-leaf4: null
             neighbor 192.0.255.6 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.6 remote-as 65102: null
             neighbor EVPN-OVERLAY-PEERS bfd: null
@@ -2628,7 +2619,7 @@ devices:
       tablesDeletes: 2
       tablesDrops: 0
       tablesInserts: 8
-      tablesLastChangeTime: 1747669334.7471821
+      tablesLastChangeTime: 1747788469.7079623
     "show ip interface brief":
       interfaces:
         Ethernet2:
@@ -2710,19 +2701,19 @@ devices:
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet2:
-          description: P2P_s1-leaf1_Ethernet3
+          description: P2P_LINK_TO_S1-LEAF1_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet3:
-          description: P2P_s1-leaf2_Ethernet3
+          description: P2P_LINK_TO_S1-LEAF2_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet4:
-          description: P2P_s1-leaf3_Ethernet3
+          description: P2P_LINK_TO_S1-LEAF3_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet5:
-          description: P2P_s1-leaf4_Ethernet3
+          description: P2P_LINK_TO_S1-LEAF4_Ethernet3
           interfaceStatus: up
           lineProtocolStatus: up
         Ethernet6:
@@ -2738,16 +2729,16 @@ devices:
           interfaceStatus: down
           lineProtocolStatus: down
         Loopback0:
-          description: ROUTER_ID
+          description: EVPN_Overlay_Peering
           interfaceStatus: up
           lineProtocolStatus: up
         Management0:
-          description: OOB_MANAGEMENT
+          description: ''
           interfaceStatus: up
           lineProtocolStatus: up
     "show version":
       architecture: i686
-      bootupTimestamp: 1747665646.797532
+      bootupTimestamp: 1747810501.2038798
       configMacAddress: 00:00:00:00:00:00
       hardwareRevision: ''
       hwMacAddress: 00:00:00:00:00:00
@@ -2757,13 +2748,13 @@ devices:
       internalVersion: 4.33.0F-39050855.4330F
       isIntlVersion: false
       kernelVersion: 5.14.0-503.21.1.el9_5.x86_64
-      memFree: 2621288
-      memTotal: 49062204
+      memFree: 3252312
+      memTotal: 49062196
       mfgName: Arista
       modelName: cEOSLab
       serialNumber: s1-spine2
       systemMacAddress: 00:1c:73:c0:c6:11
-      uptime: 7485.330909013748
+      uptime: 5896.928148508072
       version: 4.33.0F-39050855.4330F (engineering build)
     "show running-config":
       cmds:
@@ -2789,28 +2780,28 @@ devices:
           comments: []
         interface Ethernet2:
           cmds:
-            description P2P_s1-leaf1_Ethernet3: null
+            description P2P_LINK_TO_S1-LEAF1_Ethernet3: null
             ip address 172.30.255.2/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet3:
           cmds:
-            description P2P_s1-leaf2_Ethernet3: null
+            description P2P_LINK_TO_S1-LEAF2_Ethernet3: null
             ip address 172.30.255.6/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet4:
           cmds:
-            description P2P_s1-leaf3_Ethernet3: null
+            description P2P_LINK_TO_S1-LEAF3_Ethernet3: null
             ip address 172.30.255.10/31: null
             mtu 1500: null
             no switchport: null
           comments: []
         interface Ethernet5:
           cmds:
-            description P2P_s1-leaf4_Ethernet3: null
+            description P2P_LINK_TO_S1-LEAF4_Ethernet3: null
             ip address 172.30.255.14/31: null
             mtu 1500: null
             no switchport: null
@@ -2826,12 +2817,12 @@ devices:
           comments: []
         interface Loopback0:
           cmds:
-            description ROUTER_ID: null
+            description EVPN_Overlay_Peering: null
             ip address 192.0.255.2/32: null
           comments: []
         interface Management0:
           cmds:
-            description OOB_MANAGEMENT: null
+            description oob_management: null
             ip address 192.168.0.11/24: null
           comments: []
         ip name-server vrf default 192.168.2.1: null
@@ -2890,16 +2881,16 @@ devices:
             neighbor 172.30.255.7 description s1-leaf2_Ethernet3: null
             neighbor 172.30.255.7 peer group IPv4-UNDERLAY-PEERS: null
             neighbor 172.30.255.7 remote-as 65101: null
-            neighbor 192.0.255.3 description s1-leaf1_Loopback0: null
+            neighbor 192.0.255.3 description s1-leaf1: null
             neighbor 192.0.255.3 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.3 remote-as 65101: null
-            neighbor 192.0.255.4 description s1-leaf2_Loopback0: null
+            neighbor 192.0.255.4 description s1-leaf2: null
             neighbor 192.0.255.4 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.4 remote-as 65101: null
-            neighbor 192.0.255.5 description s1-leaf3_Loopback0: null
+            neighbor 192.0.255.5 description s1-leaf3: null
             neighbor 192.0.255.5 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.5 remote-as 65102: null
-            neighbor 192.0.255.6 description s1-leaf4_Loopback0: null
+            neighbor 192.0.255.6 description s1-leaf4: null
             neighbor 192.0.255.6 peer group EVPN-OVERLAY-PEERS: null
             neighbor 192.0.255.6 remote-as 65102: null
             neighbor EVPN-OVERLAY-PEERS bfd: null

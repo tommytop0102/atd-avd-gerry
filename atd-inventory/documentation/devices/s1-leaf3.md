@@ -240,7 +240,7 @@ vlan 4094
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_s1-leaf4_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
-| Ethernet4 | s1-host2_Eth1 | *trunk | *110-112,210-212,360,460,560 | *- | *- | 4 |
+| Ethernet4 | s1-host2_Eth1 | *trunk | *110-112,210-212,360-960 | *- | *- | 4 |
 | Ethernet6 | MLAG_PEER_s1-leaf4_Ethernet6 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -295,7 +295,7 @@ interface Ethernet6
 | Interface | Description | Type | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel1 | MLAG_PEER_s1-leaf4_Po1 | switched | trunk | - | - | ['LEAF_PEER_L3', 'MLAG'] | - | - | - | - |
-| Port-Channel4 | s1-host2_PortChannel | switched | trunk | 110-112,210-212,360,460,560 | - | - | - | - | 4 | - |
+| Port-Channel4 | s1-host2_PortChannel | switched | trunk | 110-112,210-212,360-960 | - | - | - | - | 4 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -312,8 +312,9 @@ interface Port-Channel1
 interface Port-Channel4
    description s1-host2_PortChannel
    no shutdown
+   mtu 9000
    switchport
-   switchport trunk allowed vlan 110-112,210-212,360,460,560
+   switchport trunk allowed vlan 110-112,210-212,360-960
    switchport mode trunk
    mlag 4
 ```

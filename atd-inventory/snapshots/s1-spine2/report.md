@@ -12,15 +12,15 @@
 ```
 Interface                      Status         Protocol           Description
 Et1                            up             up                 
-Et2                            up             up                 P2P_s1-leaf1_Ethernet3
-Et3                            up             up                 P2P_s1-leaf2_Ethernet3
-Et4                            up             up                 P2P_s1-leaf3_Ethernet3
-Et5                            up             up                 P2P_s1-leaf4_Ethernet3
+Et2                            up             up                 P2P_LINK_TO_S1-LEAF1_Ethernet3
+Et3                            up             up                 P2P_LINK_TO_S1-LEAF2_Ethernet3
+Et4                            up             up                 P2P_LINK_TO_S1-LEAF3_Ethernet3
+Et5                            up             up                 P2P_LINK_TO_S1-LEAF4_Ethernet3
 Et6                            up             up                 
 Et7                            down           down               
 Et8                            down           down               
-Lo0                            up             up                 ROUTER_ID
-Ma0                            up             up                 OOB_MANAGEMENT
+Lo0                            up             up                 EVPN_Overlay_Peering
+Ma0                            up             up
 ```
 ## show ip interface brief
 
@@ -38,7 +38,7 @@ Management0     192.168.0.11/24      up         up              1500
 ## show lldp neighbors
 
 ```
-Last table change time   : 1:03:08 ago
+Last table change time   : 7:45:19 ago
 Number of table inserts  : 8
 Number of table deletes  : 2
 Number of table drops    : 0
@@ -106,25 +106,25 @@ aaa authorization commands all default local
 interface Ethernet1
 !
 interface Ethernet2
-   description P2P_s1-leaf1_Ethernet3
+   description P2P_LINK_TO_S1-LEAF1_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.2/31
 !
 interface Ethernet3
-   description P2P_s1-leaf2_Ethernet3
+   description P2P_LINK_TO_S1-LEAF2_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.6/31
 !
 interface Ethernet4
-   description P2P_s1-leaf3_Ethernet3
+   description P2P_LINK_TO_S1-LEAF3_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.10/31
 !
 interface Ethernet5
-   description P2P_s1-leaf4_Ethernet3
+   description P2P_LINK_TO_S1-LEAF4_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.14/31
@@ -136,11 +136,11 @@ interface Ethernet7
 interface Ethernet8
 !
 interface Loopback0
-   description ROUTER_ID
+   description EVPN_Overlay_Peering
    ip address 192.0.255.2/32
 !
 interface Management0
-   description OOB_MANAGEMENT
+   description oob_management
    ip address 192.168.0.11/24
 !
 ip routing
@@ -193,16 +193,16 @@ router bgp 65001
    neighbor 172.30.255.15 description s1-leaf4_Ethernet3
    neighbor 192.0.255.3 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.3 remote-as 65101
-   neighbor 192.0.255.3 description s1-leaf1_Loopback0
+   neighbor 192.0.255.3 description s1-leaf1
    neighbor 192.0.255.4 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.4 remote-as 65101
-   neighbor 192.0.255.4 description s1-leaf2_Loopback0
+   neighbor 192.0.255.4 description s1-leaf2
    neighbor 192.0.255.5 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.5 remote-as 65102
-   neighbor 192.0.255.5 description s1-leaf3_Loopback0
+   neighbor 192.0.255.5 description s1-leaf3
    neighbor 192.0.255.6 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.6 remote-as 65102
-   neighbor 192.0.255.6 description s1-leaf4_Loopback0
+   neighbor 192.0.255.6 description s1-leaf4
    redistribute connected route-map RM-CONN-2-BGP
    !
    address-family evpn
@@ -240,7 +240,7 @@ Image optimization: None
 
 Kernel version: 5.14.0-503.21.1.el9_5.x86_64
 
-Uptime: 2 hours and 4 minutes
-Total memory: 49062204 kB
-Free memory: 2654288 kB
+Uptime: 1 hour and 38 minutes
+Total memory: 49062196 kB
+Free memory: 3199352 kB
 ```

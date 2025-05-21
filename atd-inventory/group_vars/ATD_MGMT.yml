@@ -30,3 +30,4 @@ name_servers:
   - 8.8.8.8
 
 dns_domain: atd.lab
+

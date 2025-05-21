@@ -48,25 +48,25 @@ aaa authorization commands all default local
 interface Ethernet1
 !
 interface Ethernet2
-   description P2P_s1-leaf1_Ethernet3
+   description P2P_LINK_TO_S1-LEAF1_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.2/31
 !
 interface Ethernet3
-   description P2P_s1-leaf2_Ethernet3
+   description P2P_LINK_TO_S1-LEAF2_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.6/31
 !
 interface Ethernet4
-   description P2P_s1-leaf3_Ethernet3
+   description P2P_LINK_TO_S1-LEAF3_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.10/31
 !
 interface Ethernet5
-   description P2P_s1-leaf4_Ethernet3
+   description P2P_LINK_TO_S1-LEAF4_Ethernet3
    mtu 1500
    no switchport
    ip address 172.30.255.14/31
@@ -78,11 +78,11 @@ interface Ethernet7
 interface Ethernet8
 !
 interface Loopback0
-   description ROUTER_ID
+   description EVPN_Overlay_Peering
    ip address 192.0.255.2/32
 !
 interface Management0
-   description OOB_MANAGEMENT
+   description oob_management
    ip address 192.168.0.11/24
 !
 ip routing
@@ -135,16 +135,16 @@ router bgp 65001
    neighbor 172.30.255.15 description s1-leaf4_Ethernet3
    neighbor 192.0.255.3 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.3 remote-as 65101
-   neighbor 192.0.255.3 description s1-leaf1_Loopback0
+   neighbor 192.0.255.3 description s1-leaf1
    neighbor 192.0.255.4 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.4 remote-as 65101
-   neighbor 192.0.255.4 description s1-leaf2_Loopback0
+   neighbor 192.0.255.4 description s1-leaf2
    neighbor 192.0.255.5 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.5 remote-as 65102
-   neighbor 192.0.255.5 description s1-leaf3_Loopback0
+   neighbor 192.0.255.5 description s1-leaf3
    neighbor 192.0.255.6 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.6 remote-as 65102
-   neighbor 192.0.255.6 description s1-leaf4_Loopback0
+   neighbor 192.0.255.6 description s1-leaf4
    redistribute connected route-map RM-CONN-2-BGP
    !
    address-family evpn

@@ -10,6 +10,6 @@
       import_role:
         name: eos_config_deploy_cvp
       vars:
-        container_root: 'ATD_DC1_FABRIC'
+        container_root: 'ATD_MGMT'
         configlets_prefix: 'AVD'
         state: present

@@ -97,15 +97,15 @@ cvp_configlets:
     P2P_LINK_TO_S1-SPINE1_Ethernet3\n   no shutdown\n   mtu 1500\n   no switchport\n
     \  ip address 172.30.255.5/31\n!\ninterface Ethernet3\n   description P2P_LINK_TO_S1-SPINE2_Ethernet3\n
     \  no shutdown\n   mtu 1500\n   no switchport\n   ip address 172.30.255.7/31\n!\ninterface
-    Ethernet4\n   description Leaf2_Access_eth4\n   no shutdown\n   switchport access
-    vlan 2300\n   switchport mode access\n   switchport\n   spanning-tree portfast\n
-    \  spanning-tree bpduguard enable\n!\ninterface Ethernet6\n   description MLAG_PEER_s1-leaf1_Ethernet6\n
-    \  no shutdown\n   channel-group 1 mode active\n!\ninterface Loopback0\n   description
-    EVPN_Overlay_Peering\n   no shutdown\n   ip address 192.0.255.4/32\n!\ninterface
-    Loopback1\n   description VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address
-    192.0.254.3/32\n!\ninterface Loopback100\n   description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS\n
-    \  no shutdown\n   vrf Tenant_A_OP_Zone\n   ip address 10.255.1.4/32\n!\ninterface
-    Management0\n   description oob_management\n   no shutdown\n   ip address 192.168.0.13/24\n!\ninterface
+    Ethernet4\n   description Routed_Interface_4 int_routed_host\n   no shutdown\n
+    \  mtu 9000\n   no switchport\n   vrf Tenant_A_OP_Zone\n   ip address 10.192.195.21/24\n!\ninterface
+    Ethernet6\n   description MLAG_PEER_s1-leaf1_Ethernet6\n   no shutdown\n   channel-group
+    1 mode active\n!\ninterface Loopback0\n   description EVPN_Overlay_Peering\n   no
+    shutdown\n   ip address 192.0.255.4/32\n!\ninterface Loopback1\n   description
+    VTEP_VXLAN_Tunnel_Source\n   no shutdown\n   ip address 192.0.254.3/32\n!\ninterface
+    Loopback100\n   description Tenant_A_OP_Zone_VTEP_DIAGNOSTICS\n   no shutdown\n
+    \  vrf Tenant_A_OP_Zone\n   ip address 10.255.1.4/32\n!\ninterface Management0\n
+    \  description oob_management\n   no shutdown\n   ip address 192.168.0.13/24\n!\ninterface
     Vlan110\n   description Tenant_A_OP_Zone_1\n   no shutdown\n   vrf Tenant_A_OP_Zone\n
     \  ip address virtual 10.1.10.1/24\n!\ninterface Vlan3009\n   description MLAG_PEER_L3_iBGP:
     vrf Tenant_A_OP_Zone\n   no shutdown\n   mtu 1500\n   vrf Tenant_A_OP_Zone\n   ip
@@ -174,7 +174,7 @@ cvp_configlets:
     \  description MLAG_PEER_s1-leaf4_Po1\n   no shutdown\n   switchport\n   switchport
     mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
     MLAG\n!\ninterface Port-Channel4\n   description s1-host2_PortChannel\n   no shutdown\n
-    \  switchport\n   switchport trunk allowed vlan 110-112,210-212,360,460,560\n
+    \  mtu 9000\n   switchport\n   switchport trunk allowed vlan 110-112,210-212,360-960\n
     \  switchport mode trunk\n   mlag 4\n!\ninterface Ethernet1\n   description MLAG_PEER_s1-leaf4_Ethernet1\n
     \  no shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     P2P_LINK_TO_S1-SPINE1_Ethernet4\n   no shutdown\n   mtu 1500\n   no switchport\n
@@ -257,7 +257,7 @@ cvp_configlets:
     \  description MLAG_PEER_s1-leaf3_Po1\n   no shutdown\n   switchport\n   switchport
     mode trunk\n   switchport trunk group LEAF_PEER_L3\n   switchport trunk group
     MLAG\n!\ninterface Port-Channel4\n   description s1-host2_PortChannel\n   no shutdown\n
-    \  switchport\n   switchport trunk allowed vlan 110-112,210-212,360,460,560\n
+    \  mtu 9000\n   switchport\n   switchport trunk allowed vlan 110-112,210-212,360-960\n
     \  switchport mode trunk\n   mlag 4\n!\ninterface Ethernet1\n   description MLAG_PEER_s1-leaf3_Ethernet1\n
     \  no shutdown\n   channel-group 1 mode active\n!\ninterface Ethernet2\n   description
     P2P_LINK_TO_S1-SPINE1_Ethernet5\n   no shutdown\n   mtu 1500\n   no switchport\n
@@ -422,7 +422,7 @@ cvp_configlets:
 cvp_topology:
   ATD_DC1_FABRIC:
     devices: []
-    parent_container: Tenant
+    parent_container: ATD_MGMT
   ATD_DC1_LEAFS:
     devices: []
     parent_container: ATD_DC1_FABRIC
@@ -431,6 +431,9 @@ cvp_topology:
     - s1-spine1
     - s1-spine2
     parent_container: ATD_DC1_FABRIC
+  ATD_MGMT:
+    devices: []
+    parent_container: Tenant
   pod1:
     devices:
     - s1-leaf1

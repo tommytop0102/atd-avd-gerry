@@ -26,11 +26,13 @@ cvp_devices:
       - AVD_s1-spine2
 cvp_containers:
   ATD_DC1_FABRIC:
-    parentContainerName: Tenant
+    parentContainerName: ATD_MGMT
   ATD_DC1_LEAFS:
     parentContainerName: ATD_DC1_FABRIC
   ATD_DC1_SPINES:
     parentContainerName: ATD_DC1_FABRIC
+  ATD_MGMT:
+    parentContainerName: Tenant
   pod1:
     parentContainerName: ATD_DC1_LEAFS
   pod2:

@@ -24,7 +24,9 @@ servers:
       - endpoint_ports: [Eth1, Eth2]
         switch_ports: [Ethernet4, Ethernet4]
         switches: [s1-leaf3, s1-leaf4]
-        profile: TENANT_A
+        profile: int_vpc_trunk_host
+        enabled: true
+        mtu: 9000
         port_channel:
           description: PortChannel
           mode: active

@@ -264,16 +264,14 @@ ethernet_interfaces:
   type: routed
   ip_address: 172.30.255.7/31
 - name: Ethernet4
-  peer: Leaf2_Access_eth4
   peer_type: network_port
-  port_profile: int_access_host
-  description: Leaf2_Access_eth4
+  port_profile: int_routed_host
   shutdown: false
-  type: switched
-  mode: access
-  vlans: '2300'
-  spanning_tree_portfast: edge
-  spanning_tree_bpduguard: enabled
+  type: routed
+  mtu: 9000
+  ip_address: 10.192.195.21/24
+  vrf: Tenant_A_OP_Zone
+  description: Routed_Interface_4 int_routed_host
 mlag_configuration:
   domain_id: pod1
   local_interface: Vlan4094

@@ -1,6 +1,6 @@
 ---
 - name: "Run Fabric states validation"
-  hosts: ATD_DC1_FABRIC
+  hosts: ATD_MGMT
   connection: local
   gather_facts: false
   collections:

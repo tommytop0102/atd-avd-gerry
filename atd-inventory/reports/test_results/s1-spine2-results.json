@@ -5,7 +5,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP EVPN Peer: s1-leaf1 (IP: 192.0.255.3)"
   },
@@ -15,7 +15,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP EVPN Peer: s1-leaf2 (IP: 192.0.255.4)"
   },
@@ -25,7 +25,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP EVPN Peer: s1-leaf3 (IP: 192.0.255.5)"
   },
@@ -35,7 +35,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP EVPN Peer: s1-leaf4 (IP: 192.0.255.6)"
   },
@@ -45,7 +45,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: s1-leaf1 (IP: 172.30.255.3)"
   },
@@ -55,7 +55,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: s1-leaf2 (IP: 172.30.255.7)"
   },
@@ -65,7 +65,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: s1-leaf3 (IP: 172.30.255.11)"
   },
@@ -75,7 +75,7 @@
     "categories": [
       "bgp"
     ],
-    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "description": "Verifies the health of specific BGP peer(s).",
     "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: s1-leaf4 (IP: 172.30.255.15)"
   },
@@ -85,7 +85,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "description": "Verifies that the provided LLDP neighbors are connected properly.",
     "result": "success",
     "custom_field": "Local: Ethernet2 - Remote: s1-leaf1 Ethernet3"
   },
@@ -95,7 +95,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "description": "Verifies that the provided LLDP neighbors are connected properly.",
     "result": "success",
     "custom_field": "Local: Ethernet3 - Remote: s1-leaf2 Ethernet3"
   },
@@ -105,7 +105,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "description": "Verifies that the provided LLDP neighbors are connected properly.",
     "result": "success",
     "custom_field": "Local: Ethernet4 - Remote: s1-leaf3 Ethernet3"
   },
@@ -115,7 +115,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "description": "Verifies that the provided LLDP neighbors are connected properly.",
     "result": "success",
     "custom_field": "Local: Ethernet5 - Remote: s1-leaf4 Ethernet3"
   },
@@ -125,7 +125,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Test network reachability to one or many destination IP(s).",
+    "description": "Test the network reachability to one or many destination IP(s).",
     "result": "success",
     "custom_field": "Source: P2P Interface Ethernet2 (IP: 172.30.255.2) - Destination: s1-leaf1 Ethernet3 (IP: 172.30.255.3)"
   },
@@ -135,7 +135,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Test network reachability to one or many destination IP(s).",
+    "description": "Test the network reachability to one or many destination IP(s).",
     "result": "success",
     "custom_field": "Source: P2P Interface Ethernet3 (IP: 172.30.255.6) - Destination: s1-leaf2 Ethernet3 (IP: 172.30.255.7)"
   },
@@ -145,7 +145,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Test network reachability to one or many destination IP(s).",
+    "description": "Test the network reachability to one or many destination IP(s).",
     "result": "success",
     "custom_field": "Source: P2P Interface Ethernet4 (IP: 172.30.255.10) - Destination: s1-leaf3 Ethernet3 (IP: 172.30.255.11)"
   },
@@ -155,7 +155,7 @@
     "categories": [
       "connectivity"
     ],
-    "description": "Test network reachability to one or many destination IP(s).",
+    "description": "Test the network reachability to one or many destination IP(s).",
     "result": "success",
     "custom_field": "Source: P2P Interface Ethernet5 (IP: 172.30.255.14) - Destination: s1-leaf4 Ethernet3 (IP: 172.30.255.15)"
   },
@@ -168,7 +168,7 @@
     "description": "Verifies the status of power supply fans and all fan trays.",
     "result": "skipped",
     "messages": [
-      "VerifyEnvironmentCooling test is not supported on cEOSLab"
+      "VerifyEnvironmentCooling test is not supported on cEOSLab."
     ],
     "custom_field": "Accepted States: 'ok'"
   },
@@ -181,7 +181,7 @@
     "description": "Verifies the power supplies status.",
     "result": "skipped",
     "messages": [
-      "VerifyEnvironmentPower test is not supported on cEOSLab"
+      "VerifyEnvironmentPower test is not supported on cEOSLab."
     ],
     "custom_field": "Accepted States: 'ok'"
   },
@@ -191,10 +191,10 @@
     "categories": [
       "hardware"
     ],
-    "description": "Verifies if the device temperature is within acceptable limits.",
+    "description": "Verifies the device temperature.",
     "result": "skipped",
     "messages": [
-      "VerifyTemperature test is not supported on cEOSLab"
+      "VerifyTemperature test is not supported on cEOSLab."
     ]
   },
   {
@@ -203,10 +203,10 @@
     "categories": [
       "hardware"
     ],
-    "description": "Verifies if all the transceivers come from approved manufacturers.",
+    "description": "Verifies if all transceivers come from approved manufacturers.",
     "result": "skipped",
     "messages": [
-      "VerifyTransceiversManufacturers test is not supported on cEOSLab"
+      "VerifyTransceiversManufacturers test is not supported on cEOSLab."
     ],
     "custom_field": "Accepted Manufacturers: 'Arista Networks', 'Arastra, Inc.', 'Not Present'"
   },
@@ -216,9 +216,9 @@
     "categories": [
       "interfaces"
     ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "description": "Verifies the status of the provided interfaces.",
     "result": "success",
-    "custom_field": "Interface Ethernet2 - P2P_s1-leaf1_Ethernet3 = 'up'"
+    "custom_field": "Interface Ethernet2 - P2P_LINK_TO_S1-LEAF1_Ethernet3 = 'up'"
   },
   {
     "name": "s1-spine2",
@@ -226,9 +226,9 @@
     "categories": [
       "interfaces"
     ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "description": "Verifies the status of the provided interfaces.",
     "result": "success",
-    "custom_field": "Interface Ethernet3 - P2P_s1-leaf2_Ethernet3 = 'up'"
+    "custom_field": "Interface Ethernet3 - P2P_LINK_TO_S1-LEAF2_Ethernet3 = 'up'"
   },
   {
     "name": "s1-spine2",
@@ -236,9 +236,9 @@
     "categories": [
       "interfaces"
     ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "description": "Verifies the status of the provided interfaces.",
     "result": "success",
-    "custom_field": "Interface Ethernet4 - P2P_s1-leaf3_Ethernet3 = 'up'"
+    "custom_field": "Interface Ethernet4 - P2P_LINK_TO_S1-LEAF3_Ethernet3 = 'up'"
   },
   {
     "name": "s1-spine2",
@@ -246,9 +246,9 @@
     "categories": [
       "interfaces"
     ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "description": "Verifies the status of the provided interfaces.",
     "result": "success",
-    "custom_field": "Interface Ethernet5 - P2P_s1-leaf4_Ethernet3 = 'up'"
+    "custom_field": "Interface Ethernet5 - P2P_LINK_TO_S1-LEAF4_Ethernet3 = 'up'"
   },
   {
     "name": "s1-spine2",
@@ -256,9 +256,9 @@
     "categories": [
       "interfaces"
     ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "description": "Verifies the status of the provided interfaces.",
     "result": "success",
-    "custom_field": "Interface Loopback0 - ROUTER_ID = 'up'"
+    "custom_field": "Interface Loopback0 - EVPN_Overlay_Peering = 'up'"
   },
   {
     "name": "s1-spine2",
@@ -278,17 +278,5 @@
     ],
     "description": "Verifies if NTP is synchronised.",
     "result": "success"
-  },
-  {
-    "name": "s1-spine2",
-    "test": "VerifyReloadCause",
-    "categories": [
-      "system"
-    ],
-    "description": "Verifies the last reload cause of the device.",
-    "result": "failure",
-    "messages": [
-      "Invalid reload cause -  Expected: 'Reload requested by the user.', 'Reload requested after FPGA upgrade' Actual: 'System reloaded due to Zero Touch Provisioning'"
-    ]
   }
 ]
