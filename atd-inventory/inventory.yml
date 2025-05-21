@@ -40,6 +40,11 @@ all:
         ATD_MLAG_PORT:
           children:
             ATD_DC1_LEAFS:
+        ATD_PORT_PROFILES:
+          children:
+            ATD_DC1_LEAFS:
+
+
 
   vars:
     ansible_user: arista

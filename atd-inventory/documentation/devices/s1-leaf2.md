@@ -240,6 +240,7 @@ vlan 4094
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_s1-leaf1_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
+| Ethernet4 |  Leaf2_Access_eth4 | access | 2300 | - | - | - |
 | Ethernet6 | MLAG_PEER_s1-leaf1_Ethernet6 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -250,7 +251,6 @@ vlan 4094
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
 | Ethernet2 | P2P_LINK_TO_S1-SPINE1_Ethernet3 | routed | - | 172.30.255.5/31 | default | 1500 | False | - | - |
 | Ethernet3 | P2P_LINK_TO_S1-SPINE2_Ethernet3 | routed | - | 172.30.255.7/31 | default | 1500 | False | - | - |
-| Ethernet4 | Routed_Interface_4 | routed | - | 10.192.195.21/24 | Tenant_A_OP_Zone | 9000 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -276,12 +276,13 @@ interface Ethernet3
    ip address 172.30.255.7/31
 !
 interface Ethernet4
-   description Routed_Interface_4
+   description Leaf2_Access_eth4
    no shutdown
-   mtu 9000
-   no switchport
-   vrf Tenant_A_OP_Zone
-   ip address 10.192.195.21/24
+   switchport access vlan 2300
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 !
 interface Ethernet6
    description MLAG_PEER_s1-leaf1_Ethernet6

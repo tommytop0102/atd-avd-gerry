@@ -264,13 +264,17 @@ ethernet_interfaces:
   type: routed
   ip_address: 172.30.255.3/31
 - name: Ethernet4
-  peer: Leaf1_Trunk_eth4
+  peer: teset etherent4
   peer_type: network_port
-  description: Leaf1_Trunk_eth4
+  port_profile: int_trunk_host
+  description: teset etherent4
   shutdown: false
   type: switched
+  mtu: 9000
   mode: trunk
-  vlans: 2304-2305
+  vlans: '2033'
+  spanning_tree_portfast: edge
+  spanning_tree_bpduguard: enabled
 mlag_configuration:
   domain_id: pod1
   local_interface: Vlan4094

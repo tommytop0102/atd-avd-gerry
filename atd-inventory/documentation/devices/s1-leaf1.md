@@ -240,7 +240,7 @@ vlan 4094
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_s1-leaf2_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
-| Ethernet4 |  Leaf1_Trunk_eth4 | trunk | 2304-2305 | - | - | - |
+| Ethernet4 |  teset etherent4 | trunk | 2033 | - | - | - |
 | Ethernet6 | MLAG_PEER_s1-leaf2_Ethernet6 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -276,11 +276,14 @@ interface Ethernet3
    ip address 172.30.255.3/31
 !
 interface Ethernet4
-   description Leaf1_Trunk_eth4
+   description teset etherent4
    no shutdown
-   switchport trunk allowed vlan 2304-2305
+   mtu 9000
+   switchport trunk allowed vlan 2033
    switchport mode trunk
    switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 !
 interface Ethernet6
    description MLAG_PEER_s1-leaf2_Ethernet6

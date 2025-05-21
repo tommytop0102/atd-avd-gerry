@@ -229,7 +229,7 @@ port_channel_interfaces:
   type: switched
   shutdown: false
   mode: trunk
-  vlans: 110-112,210-212,360,460
+  vlans: 110-112,210-212,360,460,560
   mlag: 4
 ethernet_interfaces:
 - name: Ethernet1

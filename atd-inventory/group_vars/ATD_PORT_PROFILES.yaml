@@ -1,0 +1,16 @@
+---
+
+port_profiles:
+  - profile: TENANT_A
+    mode: trunk
+    vlans: "110-112,210-212,360,460,560"
+
+  - profile: int_trunk_host
+    mode: trunk
+    spanning_tree_portfast: edge
+    spanning_tree_bpduguard: enabled
+
+  - profile: int_access_host
+    mode: access
+    spanning_tree_portfast: edge
+    spanning_tree_bpduguard: enabled
