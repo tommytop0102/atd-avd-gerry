@@ -128,8 +128,8 @@
 
 | Name | Port | Fabric Device | Fabric Port | Description | Shutdown | Type | Mode | VLANs | Profile |
 | ---- | ---- | ------------- | ------------| ----------- | -------- | ---- | ---- | ----- | ------- |
-| s1-host2 | Eth1 | s1-leaf3 | Ethernet4 | s1-host2_Eth1 | False | switched | trunk | 110-112,210-212,360-960 | int_vpc_trunk_host |
-| s1-host2 | Eth2 | s1-leaf4 | Ethernet4 | s1-host2_Eth2 | False | switched | trunk | 110-112,210-212,360-960 | int_vpc_trunk_host |
+| s1-host2 | NIC1 | s1-leaf3 | Ethernet4 | s1-host2_NIC1 | False | switched | trunk | 110-112,210-212,360-460 | int_vpc_trunk_host |
+| s1-host2 | NIC2 | s1-leaf4 | Ethernet4 | s1-host2_NIC2 | False | switched | trunk | 110-112,210-212,360-460 | int_vpc_trunk_host |
 
 ### Port Profiles
 

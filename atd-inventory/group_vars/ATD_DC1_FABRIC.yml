@@ -120,3 +120,23 @@ bfd_multihop:
 #   containers:
 #     DC1_L3LEAFS:
 #       - ASE_GLOBAL-ALIASES
+
+
+name_servers:
+  - 192.168.2.1
+  - 8.8.8.8
+  - 168.95.1.1
+
+ntp:
+  servers:
+  - name: time.google.com
+    preferred: true
+    vrf: default
+    iburst: true
+  - name: 10.70.32.147
+    preferred: true
+    vrf: default
+    iburst: true
+
+dns_domain: atd.lab
+

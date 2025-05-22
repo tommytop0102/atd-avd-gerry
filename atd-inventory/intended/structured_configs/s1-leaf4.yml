@@ -138,6 +138,8 @@ ip_name_servers:
   vrf: default
 - ip_address: 8.8.8.8
   vrf: default
+- ip_address: 168.95.1.1
+  vrf: default
 spanning_tree:
   mode: mstp
   mst_instances:
@@ -230,7 +232,9 @@ port_channel_interfaces:
   shutdown: false
   mtu: 9000
   mode: trunk
-  vlans: 110-112,210-212,360-960
+  vlans: 110-112,210-212,360-460
+  spanning_tree_portfast: edge
+  spanning_tree_bpduguard: enabled
   mlag: 4
 ethernet_interfaces:
 - name: Ethernet1
@@ -273,10 +277,10 @@ ethernet_interfaces:
   ip_address: 172.30.255.15/31
 - name: Ethernet4
   peer: s1-host2
-  peer_interface: Eth2
+  peer_interface: NIC2
   peer_type: server
   port_profile: int_vpc_trunk_host
-  description: s1-host2_Eth2
+  description: s1-host2_NIC2
   shutdown: false
   type: port-channel-member
   channel_group:

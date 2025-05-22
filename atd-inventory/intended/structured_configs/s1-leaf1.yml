@@ -138,6 +138,8 @@ ip_name_servers:
   vrf: default
 - ip_address: 8.8.8.8
   vrf: default
+- ip_address: 168.95.1.1
+  vrf: default
 spanning_tree:
   mode: mstp
   mst_instances:
@@ -272,7 +274,7 @@ ethernet_interfaces:
   type: switched
   mtu: 9000
   mode: trunk
-  vlans: '2033'
+  vlans: 2033-2034
   spanning_tree_portfast: edge
   spanning_tree_bpduguard: enabled
 mlag_configuration:

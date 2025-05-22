@@ -6,6 +6,7 @@
   - [Management Interfaces](#management-interfaces)
   - [DNS Domain](#dns-domain)
   - [IP Name Servers](#ip-name-servers)
+  - [NTP](#ntp)
   - [Management API HTTP](#management-api-http)
 - [MLAG](#mlag)
   - [MLAG Summary](#mlag-summary)
@@ -93,12 +94,33 @@ dns domain atd.lab
 | ----------- | --- | -------- |
 | 192.168.2.1 | default | - |
 | 8.8.8.8 | default | - |
+| 168.95.1.1 | default | - |
 
 #### IP Name Servers Device Configuration
 
 ```eos
 ip name-server vrf default 8.8.8.8
+ip name-server vrf default 168.95.1.1
 ip name-server vrf default 192.168.2.1
+```
+
+### NTP
+
+#### NTP Summary
+
+##### NTP Servers
+
+| Server | VRF | Preferred | Burst | iBurst | Version | Min Poll | Max Poll | Local-interface | Key |
+| ------ | --- | --------- | ----- | ------ | ------- | -------- | -------- | --------------- | --- |
+| 10.70.32.147 | default | True | - | True | - | - | - | - | - |
+| time.google.com | default | True | - | True | - | - | - | - | - |
+
+#### NTP Device Configuration
+
+```eos
+!
+ntp server 10.70.32.147 prefer iburst
+ntp server time.google.com prefer iburst
 ```
 
 ### Management API HTTP
@@ -240,7 +262,7 @@ vlan 4094
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_s1-leaf2_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
-| Ethernet4 |  teset etherent4 | trunk | 2033 | - | - | - |
+| Ethernet4 |  teset etherent4 | trunk | 2033-2034 | - | - | - |
 | Ethernet6 | MLAG_PEER_s1-leaf2_Ethernet6 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -279,7 +301,7 @@ interface Ethernet4
    description teset etherent4
    no shutdown
    mtu 9000
-   switchport trunk allowed vlan 2033
+   switchport trunk allowed vlan 2033-2034
    switchport mode trunk
    switchport
    spanning-tree portfast
